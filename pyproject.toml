@@ -18,7 +18,7 @@ python = ">=3.9.0, <3.10"
 dvc = { version = "2.10.1", extras = ["s3"] }
 mlflow = "1.19.0"
 torchmetrics = "0.7.3"
-clarinpl-embeddings = "0.0.1rc244740591597"
+clarinpl-embeddings = {"git" = "https://github.com/dkajtoch/embeddings.git"}
 wandb = "0.12.14"
 flair = "0.10"
 torch = "1.11.0"
@@ -50,7 +50,7 @@ test = ["coverage_test", "coverage_report"]
 check = ["black", "isort", "mypy", "pyflakes"]
 fix = ["black_fix", "isort_fix"]
 all = ["check", "test"]
-force-torch-cuda = "python -m pip install torch==1.11.0+cu113 --extra-index-url https://download.pytorch.org/whl/cu113"
+force-torch-cuda = "python -m pip install torch==2.0.0+cu117 torchvision==0.15.1+cu117 torchaudio==2.0.1 --index-url https://download.pytorch.org/whl/cu117"
 
 [tool.poetry.extras]
 developer = ["black", "mypy", "typing-extensions"]
