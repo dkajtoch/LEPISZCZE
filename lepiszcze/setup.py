@@ -9,5 +9,5 @@ def disable_hf_datasets_caching() -> None:
 
 def get_lightning_logging_config(dataset_name: str) -> LightningLoggingConfig:
     return LightningLoggingConfig(
-        loggers_names=["wandb"], tracking_project_name=dataset_name, wandb_entity="embeddings"
+        loggers_names=["wandb"], tracking_project_name=dataset_name, wandb_entity="dkajtoch"
     )

@@ -46,6 +46,7 @@ def run(
         input_column_name=input_column_name,  # type: ignore
         target_column_name=target_column_name,
         ignore_preprocessing_pipeline=True,
+        dataloader_kwargs={"num_workers": 12},
         logging_config=logging_config,
         early_stopping_kwargs=early_stopping_kwargs,
         **hps_config_common,

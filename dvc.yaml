@@ -527,53 +527,53 @@ stages:
       outs:
         - data/models/lightning/${item}/polemo2/
 
-  lightning_polemo2_in:
-    foreach:
-#      - allegro__herbert-base-cased
-      - allegro__herbert-large-cased
-#      - dkleczek__bert-base-polish-uncased-v1
-#      - dkleczek__bert-base-polish-cased-v1
-#      - sentence-transformers__paraphrase-xlm-r-multilingual-v1
-    do:
-      cmd: PYTHONPATH=. python3 experiments/scripts/tasks/evaluate_lightning_classification.py --ds polemo2_in --embedding-path ${item} --retrains 5
-      deps:
-        - experiments/scripts/tasks/evaluate_lightning_classification.py
-        - data/datasets/polemo2_in/lightning
-        - data/hps/lightning/${item}/polemo2_in/best_params.yaml
-      outs:
-        - data/models/lightning/${item}/polemo2_in/
+#  lightning_polemo2_in:
+#    foreach:
+##      - allegro__herbert-base-cased
+#      - allegro__herbert-large-cased
+##      - dkleczek__bert-base-polish-uncased-v1
+##      - dkleczek__bert-base-polish-cased-v1
+##      - sentence-transformers__paraphrase-xlm-r-multilingual-v1
+#    do:
+#      cmd: PYTHONPATH=. python3 experiments/scripts/tasks/evaluate_lightning_classification.py --ds polemo2_in --embedding-path ${item} --retrains 5
+#      deps:
+#        - experiments/scripts/tasks/evaluate_lightning_classification.py
+#        - data/datasets/polemo2_in/lightning
+#        - data/hps/lightning/${item}/polemo2_in/best_params.yaml
+#      outs:
+#        - data/models/lightning/${item}/polemo2_in/
 
-  lightning_polemo2_out:
-    foreach:
-#      - allegro__herbert-base-cased
-      - allegro__herbert-large-cased
-#      - dkleczek__bert-base-polish-uncased-v1
-#      - dkleczek__bert-base-polish-cased-v1
-#      - sentence-transformers__paraphrase-xlm-r-multilingual-v1
-    do:
-      cmd: PYTHONPATH=. python3 experiments/scripts/tasks/evaluate_lightning_classification.py --ds polemo2_out --embedding-path ${item} --retrains 5
-      deps:
-        - experiments/scripts/tasks/evaluate_lightning_classification.py
-        - data/datasets/polemo2_out/lightning
-        - data/hps/lightning/${item}/polemo2_out/best_params.yaml
-      outs:
-        - data/models/lightning/${item}/polemo2_out/
+#  lightning_polemo2_out:
+#    foreach:
+##      - allegro__herbert-base-cased
+#      - allegro__herbert-large-cased
+##      - dkleczek__bert-base-polish-uncased-v1
+##      - dkleczek__bert-base-polish-cased-v1
+##      - sentence-transformers__paraphrase-xlm-r-multilingual-v1
+#    do:
+#      cmd: PYTHONPATH=. python3 experiments/scripts/tasks/evaluate_lightning_classification.py --ds polemo2_out --embedding-path ${item} --retrains 5
+#      deps:
+#        - experiments/scripts/tasks/evaluate_lightning_classification.py
+#        - data/datasets/polemo2_out/lightning
+#        - data/hps/lightning/${item}/polemo2_out/best_params.yaml
+#      outs:
+#        - data/models/lightning/${item}/polemo2_out/
 
-  lightning_psc:
-    foreach:
-#      - allegro__herbert-base-cased
-      - allegro__herbert-large-cased
-#      - dkleczek__bert-base-polish-uncased-v1
-#      - dkleczek__bert-base-polish-cased-v1
-#      - sentence-transformers__paraphrase-xlm-r-multilingual-v1
-    do:
-      cmd: PYTHONPATH=. python3 experiments/scripts/tasks/evaluate_lightning_classification.py --ds psc --embedding-path ${item} --retrains 5
-      deps:
-        - experiments/scripts/tasks/evaluate_lightning_classification.py
-        - data/datasets/psc/lightning
-        - data/hps/lightning/${item}/psc/best_params.yaml
-      outs:
-        - data/models/lightning/${item}/psc/
+#  lightning_psc:
+#    foreach:
+##      - allegro__herbert-base-cased
+#      - allegro__herbert-large-cased
+##      - dkleczek__bert-base-polish-uncased-v1
+##      - dkleczek__bert-base-polish-cased-v1
+##      - sentence-transformers__paraphrase-xlm-r-multilingual-v1
+#    do:
+#      cmd: PYTHONPATH=. python3 experiments/scripts/tasks/evaluate_lightning_classification.py --ds psc --embedding-path ${item} --retrains 5
+#      deps:
+#        - experiments/scripts/tasks/evaluate_lightning_classification.py
+#        - data/datasets/psc/lightning
+#        - data/hps/lightning/${item}/psc/best_params.yaml
+#      outs:
+#        - data/models/lightning/${item}/psc/
 
   lightning_nkjp_ner:
     foreach:
