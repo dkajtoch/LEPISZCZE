@@ -1,0 +1,81 @@
+schema: '2.0'
+stages:
+  dyk_preprocess_dataset@lightning:
+    cmd: PYTHONPATH=. python3 experiments/scripts/preprocess_dataset.py --ds dyk --cfg-type
+      lightning
+    deps:
+    - path: experiments/scripts/preprocess_dataset.py
+      md5: 189ff898f469d39b0636e633d8223073
+      size: 1186
+    params:
+      experiments/configs/datasets/dyk.yaml:
+        common_args:
+          dataset_name: allegro/klej-dyk
+          input_column_names:
+          - question
+          - answer
+          target_column_name: target
+          sample_missing_splits:
+          sample_missing_splits_hps:
+          - 0.1
+          - 
+          downsample_splits:
+          load_dataset_kwargs:
+          seed: 441
+          encode_labels: true
+        datasets.lightning:
+          pipeline_cls: embeddings.pipeline.hf_preprocessing_pipeline.HuggingFacePreprocessingPipeline
+          pipeline_args:
+            dataset_name: allegro/klej-dyk
+            sample_missing_splits:
+            ignore_test_subset: false
+            load_dataset_kwargs:
+            seed: 441
+            downsample_splits:
+          output: data/datasets/dyk/lightning/
+    outs:
+    - path: data/datasets/dyk/lightning/
+      md5: 3d9f0550579765c7dde95878ffa555aa.dir
+      size: 1749490
+      nfiles: 7
+  dyk_preprocess_dataset_hps@lightning:
+    cmd: PYTHONPATH=. python3 experiments/scripts/preprocess_dataset.py --ds dyk --cfg-type
+      lightning --is-hps
+    deps:
+    - path: data/datasets/dyk/lightning
+      md5: 3d9f0550579765c7dde95878ffa555aa.dir
+      size: 1749490
+      nfiles: 7
+    - path: experiments/scripts/preprocess_dataset.py
+      md5: 189ff898f469d39b0636e633d8223073
+      size: 1186
+    params:
+      experiments/configs/datasets/dyk.yaml:
+        common_args:
+          dataset_name: allegro/klej-dyk
+          input_column_names:
+          - question
+          - answer
+          target_column_name: target
+          sample_missing_splits:
+          sample_missing_splits_hps: &id001
+          - 0.1
+          - 
+          downsample_splits:
+          load_dataset_kwargs:
+          seed: 441
+          encode_labels: true
+        datasets.lightning_hps:
+          pipeline_cls: embeddings.pipeline.hf_preprocessing_pipeline.HuggingFacePreprocessingPipeline
+          pipeline_args:
+            dataset_name: data/datasets/dyk/lightning/
+            sample_missing_splits: *id001
+            ignore_test_subset: true
+            load_dataset_kwargs:
+            seed: 441
+          output: data/datasets/dyk/lightning_hps/
+    outs:
+    - path: data/datasets/dyk/lightning_hps/
+      md5: 9f1bdb019e7cc03be55cd6e08161ce98.dir
+      size: 1394673
+      nfiles: 7
