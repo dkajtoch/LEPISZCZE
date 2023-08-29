@@ -63,7 +63,7 @@ def run(
         pipeline.run(run_name=run_name)
         wandb.restore(
             name="config.yaml",
-            run_path=pipeline.model.task.trainer.logger[0]._experiment.path,  # type: ignore
+            run_path=pipeline.model.task.trainer.logger._experiment.path,  # type: ignore
             root=str(run_output_path),
         )
 
