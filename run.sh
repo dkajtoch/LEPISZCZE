@@ -25,6 +25,9 @@ run_data_preprocessing_hps () {
 }
 
 TASK_NAME=(
+#  polemo2
+#  nkjp_ner
+#  dyk
   cst_wikinews
   cbd
   cdsc_e
@@ -34,8 +37,9 @@ item=allegro__herbert-large-cased
 
 for task in "${TASK_NAME[@]}"
 do
+  run_data_preprocessing
+  run_data_preprocessing_hps
   # HPS scripts breaks deterministically.
-  rm -rf dvc.lock
-  dvc repro || true
+  run_hps || true
   run_evaluation
 done
