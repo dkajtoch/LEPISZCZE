@@ -1,4 +1,11 @@
-# LEPISZCZE
+# LEPISZCZE (extended)
+
+This is a fork of the original repository that runs training and evaluation for additional 
+datasets i.e. `allegro/klej-cbd`, `allegro/klej-nkjp-ner`, and `clarin-pl/cst-wikinews`. 
+
+Simply use `./run.sh
+`
+------
 This is the official code implementation for the LEPISZCZE benchmark experiments  
 **"This is the way: designing and compiling LEPISZCZE, a comprehensive NLP benchmark for Polish"**
 (Łukasz Augustyniak, Kamil Tagowski, Albert Sawczyn, 
