@@ -25,9 +25,9 @@ run_data_preprocessing_hps () {
 }
 
 TASK_NAME=(
-#  polemo2
-#  nkjp_ner
-#  dyk
+  polemo2
+  nkjp_ner
+  dyk
   cst_wikinews
   cbd
   cdsc_e
