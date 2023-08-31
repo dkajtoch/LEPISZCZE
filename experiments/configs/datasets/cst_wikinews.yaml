@@ -6,8 +6,8 @@ common_args:
         - sentence_1
         - sentence_2
     target_column_name: &target_column_name label
-    sample_missing_splits: &sample_missing_splits [0.1,null]
-    sample_missing_splits_hps: &sample_missing_splits_hps [0.1,null]
+    sample_missing_splits: &sample_missing_splits [0.2,null]
+    sample_missing_splits_hps: &sample_missing_splits_hps [0.2,null]
     downsample_splits: &downsample_splits null
     load_dataset_kwargs: &load_dataset_kwargs null
     seed: &seed 441
